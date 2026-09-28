@@ -1,0 +1,12 @@
+# fastmcp (agent tooling). Versions are the two pinned releases the candidate pool was diffed on.
+package: fastmcp
+domain: agent_tool
+old_version: null     # no release before the boundary: every API is new
+new_version: 3.2.4
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  max_novel: 300
+  doc_source: html
+  doc_url: https://gofastmcp.com/getting-started/welcome
+  changelog_url: https://gofastmcp.com/changelog#changelog

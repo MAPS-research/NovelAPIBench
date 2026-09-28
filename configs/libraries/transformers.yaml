@@ -1,0 +1,17 @@
+# transformers (deep learning). Versions are the two pinned releases the candidate pool was diffed on.
+package: transformers
+domain: dl
+old_version: 4.35.2
+new_version: 5.7.0
+python_version: "3.11"
+eval_timeout_seconds: 240
+construction:
+  max_novel: 300
+  doc_source: mkdocs
+  doc_url: https://huggingface.co/docs/transformers/
+  changelog_url: https://github.com/huggingface/transformers/releases
+  introspect_timeout_seconds: 900
+  implementation_timeout_seconds: 120
+  stage3_exec_timeout_seconds: 120
+  stage3_validation_timeout_seconds: 120
+  stage3_sandbox_memory_mb: 32768

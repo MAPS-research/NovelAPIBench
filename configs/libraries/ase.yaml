@@ -1,0 +1,17 @@
+# ase (AI for science). Versions are the two pinned releases the candidate pool was diffed on.
+package: ase
+domain: ai4science
+old_version: 3.22.1
+new_version: 3.28.0
+python_version: "3.11"
+eval_timeout_seconds: 150
+construction:
+  max_novel: 250
+  doc_source: sphinx
+  doc_url: https://wiki.fysik.dtu.dk/ase/
+  changelog_url: https://gitlab.com/ase/ase/-/releases
+  introspect_timeout_seconds: 900
+  implementation_timeout_seconds: 180
+  stage3_exec_timeout_seconds: 150
+  stage3_validation_timeout_seconds: 150
+  stage3_sandbox_memory_mb: 32768

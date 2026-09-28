@@ -1,0 +1,11 @@
+# httpx (software engineering). Versions are the two pinned releases the candidate pool was diffed on.
+package: httpx
+domain: swe
+old_version: 0.25.2
+new_version: 0.28.1
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  doc_source: mkdocs
+  doc_url: https://www.python-httpx.org/
+  changelog_url: https://github.com/encode/httpx/releases

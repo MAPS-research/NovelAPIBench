@@ -1,0 +1,7 @@
+name: Qwen/Qwen2.5-Coder-14B-Instruct
+revision: aedcc2d42b622764e023cf882b6652e646b95671
+max_seq_len: 16384
+max_new_tokens: 2048
+thinking_mode: false
+trust_remote_code: false
+tensor_parallel_size: 1

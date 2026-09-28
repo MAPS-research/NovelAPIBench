@@ -1,0 +1,13 @@
+# Outputs, caches and per-library environments are regenerated, never committed.
+outputs/
+envs/*/
+!envs/locks/
+__pycache__/
+*.pyc
+*.egg-info/
+.env
+api_key*
+*.sqlite
+*.slurm
+logs/
+.ruff_cache/

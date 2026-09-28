@@ -1,0 +1,108 @@
+# Parametric adaptation (RQ3; Appendix D.4 "Parametric Adaptation", Table "Adaptation
+# hyperparameters"). These are the settings of the runs behind the paper's RQ3 numbers.
+# Loaded by scripts/train_adaptation.py as `cfg.adaptation`; override any value on the command
+# line, e.g.  adaptation.sft.num_epochs=1
+
+model: qwen2.5-coder-7b           # primary backbone (configs/models/)
+split: rq3_train                  # all 1,502 training tasks (722 APIs), including later-excluded ones
+
+# LoRA fine-tuning on the no-knowledge prompt (TRL SFTTrainer, LM loss over the full sequence).
+sft:
+  lora_rank: 64
+  lora_alpha: 128
+  lora_dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]   # all 28 layers
+  learning_rate: 2.0e-5           # AdamW (Trainer default optimizer)
+  num_epochs: 3
+  lr_scheduler: cosine
+  warmup_ratio: 0.05
+  per_device_batch_size: 1
+  gradient_accumulation_steps: 16
+  max_seq_len: 2048
+  bf16: true
+  gradient_checkpointing: true
+  seed: 42
+
+# RAFT: the SFT recipe on prompts with the target bundle among two distractor bundles.
+raft:
+  lora_rank: 64
+  lora_alpha: 128
+  lora_dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+  learning_rate: 2.0e-5
+  num_epochs: 3
+  lr_scheduler: cosine
+  warmup_ratio: 0.05
+  per_device_batch_size: 1
+  gradient_accumulation_steps: 16
+  max_seq_len: 16384              # three Full bundles in the prompt
+  bf16: true
+  gradient_checkpointing: true
+  seed: 42
+  num_distractors: 2              # other training APIs, sampled uniformly
+  drop_target_prob: 0.2           # the target bundle is left out of 294 of the 1,502 examples
+  sampling_seed: 0                # per-task stream random.Random("<sampling_seed>::<task_id>")
+
+# GRACE: one codebook edit per training task at the input of layer 24's up_proj.
+grace:
+  layer: model.layers.24.mlp.up_proj
+  eps: 1.0                        # initial radius of a memory entry
+  optimizer: adam
+  edit_lr: 1.0
+  n_iter: 100                     # at most, per edit
+  early_stop_loss: 0.01
+  max_seq_len: 4096
+
+# Second-moment statistics E[k k^T] of the inputs to down_proj, used by MEMIT and to build the
+# AlphaEdit-LoRA projector. Stored under outputs/adaptation/stats/<model>/.
+covariance:
+  dataset: wikitext               # wikitext-103-raw-v1, train split
+  n_samples: 20000
+  dtype: float32
+  layers: [5, 6, 7, 8, 9]
+  module: model.layers.{}.mlp.down_proj
+
+# MEMIT (upstream hyperparameter names), with the subject anchored in the S_name line.
+memit:
+  context_templates: data/adaptation/memit_context_templates.json   # null: sample new ones
+  hparams:
+    layers: ${adaptation.covariance.layers}
+    layer_selection: all
+    fact_token: subject_last
+    v_num_grad_steps: 25
+    v_lr: 0.5
+    v_loss_layer: 27
+    v_weight_decay: 0.5
+    clamp_norm_factor: 0.75
+    kl_factor: 0.0625
+    mom2_adjustment: true
+    mom2_update_weight: 15000
+    rewrite_module_tmp: ${adaptation.covariance.module}
+    layer_module_tmp: model.layers.{}
+    mlp_module_tmp: model.layers.{}.mlp
+    attn_module_tmp: model.layers.{}.self_attn
+    ln_f_module: model.norm
+    lm_head_module: lm_head
+    mom2_dataset: ${adaptation.covariance.dataset}
+    mom2_n_samples: ${adaptation.covariance.n_samples}
+    mom2_dtype: ${adaptation.covariance.dtype}
+
+# AlphaEdit-LoRA: LoRA on down_proj of the MEMIT layers, lora_A projected onto the covariance
+# directions with singular value below the threshold.
+alphaedit_lora:
+  layers: ${adaptation.covariance.layers}
+  projection_threshold: 2.0e-2    # A <- A P before training and after every optimizer step
+  lora_rank: 64
+  lora_alpha: 32
+  lora_dropout: 0.1
+  target_modules: [down_proj]     # adapters on every layer; only `layers` are trained
+  learning_rate: 1.0e-4
+  num_epochs: 3
+  lr_scheduler: cosine
+  warmup_ratio: 0.05
+  per_device_batch_size: 1
+  gradient_accumulation_steps: 16
+  max_seq_len: 2048
+  bf16: true
+  gradient_checkpointing: true
+  seed: 42

@@ -1,0 +1,15 @@
+# deepchem (AI for science). Versions are the two pinned releases the candidate pool was diffed on.
+package: deepchem
+domain: ai4science
+old_version: 2.7.1
+new_version: 2.8.0
+python_version: "3.11"
+eval_timeout_seconds: 300
+construction:
+  max_novel: 250
+  doc_source: html
+  doc_url: https://deepchem.readthedocs.io/en/latest/
+  changelog_url: https://github.com/deepchem/deepchem/releases
+  stage3_exec_timeout_seconds: 300
+  stage3_validation_timeout_seconds: 300
+  stage3_sandbox_memory_mb: 32768

@@ -1,0 +1,11 @@
+# langgraph (agent tooling). Versions are the two pinned releases the candidate pool was diffed on.
+package: langgraph
+domain: agent_tool
+old_version: null     # no release before the boundary: every API is new
+new_version: 1.1.10
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  doc_source: html
+  doc_url: https://langchain-ai.github.io/langgraph/
+  changelog_url: https://github.com/langchain-ai/langgraph/releases

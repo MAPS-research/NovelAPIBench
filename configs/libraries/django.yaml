@@ -1,0 +1,12 @@
+# django (software engineering). Versions are the two pinned releases the candidate pool was diffed on.
+package: Django
+import_name: django
+domain: swe
+old_version: 4.2.7
+new_version: 5.2.13
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  doc_source: html
+  doc_url: https://docs.djangoproject.com/en/5.2/
+  changelog_url: https://docs.djangoproject.com/en/5.2/releases/

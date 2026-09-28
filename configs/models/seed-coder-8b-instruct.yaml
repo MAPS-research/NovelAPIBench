@@ -1,0 +1,7 @@
+name: ByteDance-Seed/Seed-Coder-8B-Instruct
+revision: 1c5af72afa21c22c9272a0b60a3a404195e88fcd
+max_seq_len: 16384
+max_new_tokens: 2048
+thinking_mode: false
+trust_remote_code: false
+tensor_parallel_size: 1

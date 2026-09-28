@@ -1,0 +1,11 @@
+# numpy (data science). Versions are the two pinned releases the candidate pool was diffed on.
+package: numpy
+domain: data_science
+old_version: 1.26.2
+new_version: 2.4.4
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  doc_source: html
+  doc_url: https://numpy.org/doc/
+  changelog_url: https://github.com/numpy/numpy/releases

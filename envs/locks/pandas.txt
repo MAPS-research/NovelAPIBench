@@ -1,0 +1,2 @@
+# main-environment
+# Tasks of pandas run in the main project environment, which pins pandas==3.0.2 (requirements.txt).

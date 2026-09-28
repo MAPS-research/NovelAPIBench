@@ -1,0 +1,12 @@
+# scanpy (AI for science). Versions are the two pinned releases the candidate pool was diffed on.
+package: scanpy
+domain: ai4science
+old_version: 1.9.6
+new_version: 1.11.5
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  max_novel: 100
+  doc_source: html
+  doc_url: https://scanpy.readthedocs.io/en/stable/
+  changelog_url: https://scanpy.readthedocs.io/en/stable/release-notes/index.html

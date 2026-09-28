@@ -1,0 +1,81 @@
+{
+  "description": "Per-task verdicts behind the paper's main-body tables and figures (scripts/analyze.py --source paper). Rows are in the order the paper's intervals were computed in.",
+  "columns": {
+    "model": "backbone (configs/models/<model>.yaml)",
+    "setting": "oracle: the condition's components of the target API's bundle in the prompt (RQ1); retrieval: the top-5 retrieved chunks instead (RQ2)",
+    "method": "RQ3 adaptation method (base = no update)",
+    "condition": "knowledge condition (RQ3: none or Full)",
+    "task_id": "task (data/benchmark/tasks.jsonl)",
+    "api_name": "target API",
+    "library": "library",
+    "domain": "domain",
+    "difficulty": "easy | medium | hard",
+    "passed": "greedy pass@1 verdict (1 = passes, including the call-record check)",
+    "label": "Pass or the failure label (WrongAPISelection, WrongImport, WrongSyntax, WrongParam, WrongShapeDtype, WrongLogic)",
+    "call_check_failed": "1 when the completion ran and called the target API but failed only the call-record check",
+    "pass_at_5": "unbiased pass@5 from 20 samples at temperature 0.8 (primary backbone, oracle setting); empty where not evaluated",
+    "response": "greedy model response (before code extraction)",
+    "target_rank": "1-based rank of the first chunk of the task's target API in the full ranking of the domain's retrieval index for the condition (primary backbone)",
+    "hit5": "1 when target_rank <= 5"
+  },
+  "files": {
+    "rq12_per_task.csv.gz": {
+      "rows": 114681,
+      "columns": [
+        "model",
+        "setting",
+        "condition",
+        "task_id",
+        "api_name",
+        "library",
+        "domain",
+        "difficulty",
+        "passed",
+        "label",
+        "pass_at_5"
+      ],
+      "sha256": "ef2a00197cb939488757bb12fa1d01025db7dc669ea05a81a550f493d2e586f4",
+      "bytes": 2027604
+    },
+    "rq3_per_task.csv.gz": {
+      "rows": 4176,
+      "columns": [
+        "method",
+        "condition",
+        "task_id",
+        "api_name",
+        "library",
+        "domain",
+        "difficulty",
+        "passed",
+        "label",
+        "call_check_failed",
+        "pass_at_5"
+      ],
+      "sha256": "a2430d4394bfff118ee3ca68ab838caacb7096a3dea8184fb25e17d117ed89ce",
+      "bytes": 91732
+    },
+    "rq3_responses.jsonl.gz": {
+      "rows": 4176,
+      "columns": [
+        "method",
+        "condition",
+        "task_id",
+        "response"
+      ],
+      "sha256": "5244579520cf5ca149e503d8636561c3a556cc89295c6dc392d6f6534056e98f",
+      "bytes": 1029698
+    },
+    "rq2_retrieval_hits.csv.gz": {
+      "rows": 18370,
+      "columns": [
+        "task_id",
+        "condition",
+        "target_rank",
+        "hit5"
+      ],
+      "sha256": "15fd24f2a30b9fe41475ae3524c8a526a9db46f0fd793efe6c0a5eae38c903b0",
+      "bytes": 89422
+    }
+  }
+}

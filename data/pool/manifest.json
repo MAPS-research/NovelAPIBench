@@ -1,0 +1,446 @@
+{
+  "pool_id": "pool_v9_20260909",
+  "created_at": "2026-09-09T22:36:53.942174+00:00",
+  "n_candidates": 2600,
+  "per_library": {
+    "MDAnalysis": {
+      "union_before_cap": 47,
+      "union_after_cap": 47,
+      "per_model": {
+        "opencoder-8b-instruct": 47,
+        "qwen2.5-coder-7b": 43,
+        "qwen2.5-coder-14b": 43,
+        "qwen2.5-coder-32b": 43,
+        "r1-distill-qwen-7b": 27,
+        "seed-coder-8b-instruct": 18
+      }
+    },
+    "ase": {
+      "union_before_cap": 292,
+      "union_after_cap": 250,
+      "per_model": {
+        "opencoder-8b-instruct": 250,
+        "qwen2.5-coder-7b": 82,
+        "qwen2.5-coder-14b": 82,
+        "qwen2.5-coder-32b": 82,
+        "r1-distill-qwen-7b": 59,
+        "seed-coder-8b-instruct": 37
+      }
+    },
+    "astropy": {
+      "union_before_cap": 153,
+      "union_after_cap": 151,
+      "per_model": {
+        "opencoder-8b-instruct": 148,
+        "qwen2.5-coder-7b": 123,
+        "qwen2.5-coder-14b": 123,
+        "qwen2.5-coder-32b": 123,
+        "r1-distill-qwen-7b": 79,
+        "seed-coder-8b-instruct": 46
+      }
+    },
+    "deepchem": {
+      "union_before_cap": 236,
+      "union_after_cap": 208,
+      "per_model": {
+        "opencoder-8b-instruct": 208,
+        "qwen2.5-coder-7b": 0,
+        "qwen2.5-coder-14b": 0,
+        "qwen2.5-coder-32b": 0,
+        "r1-distill-qwen-7b": 0,
+        "seed-coder-8b-instruct": 0
+      }
+    },
+    "diffusers": {
+      "union_before_cap": 1146,
+      "union_after_cap": 300,
+      "per_model": {
+        "opencoder-8b-instruct": 298,
+        "qwen2.5-coder-7b": 207,
+        "qwen2.5-coder-14b": 196,
+        "qwen2.5-coder-32b": 196,
+        "r1-distill-qwen-7b": 181,
+        "seed-coder-8b-instruct": 152
+      }
+    },
+    "django": {
+      "union_before_cap": 53,
+      "union_after_cap": 53,
+      "per_model": {
+        "opencoder-8b-instruct": 53,
+        "qwen2.5-coder-7b": 22,
+        "qwen2.5-coder-14b": 21,
+        "qwen2.5-coder-32b": 21,
+        "r1-distill-qwen-7b": 21,
+        "seed-coder-8b-instruct": 3
+      }
+    },
+    "fastapi": {
+      "union_before_cap": 20,
+      "union_after_cap": 20,
+      "per_model": {
+        "opencoder-8b-instruct": 20,
+        "qwen2.5-coder-7b": 19,
+        "qwen2.5-coder-14b": 16,
+        "qwen2.5-coder-32b": 16,
+        "r1-distill-qwen-7b": 16,
+        "seed-coder-8b-instruct": 16
+      }
+    },
+    "fastmcp": {
+      "union_before_cap": 503,
+      "union_after_cap": 300,
+      "per_model": {
+        "opencoder-8b-instruct": 300,
+        "qwen2.5-coder-7b": 300,
+        "qwen2.5-coder-14b": 300,
+        "qwen2.5-coder-32b": 300,
+        "r1-distill-qwen-7b": 296,
+        "seed-coder-8b-instruct": 273
+      }
+    },
+    "flask": {
+      "union_before_cap": 2,
+      "union_after_cap": 2,
+      "per_model": {
+        "opencoder-8b-instruct": 2,
+        "qwen2.5-coder-7b": 2,
+        "qwen2.5-coder-14b": 2,
+        "qwen2.5-coder-32b": 2,
+        "r1-distill-qwen-7b": 0,
+        "seed-coder-8b-instruct": 0
+      }
+    },
+    "httpx": {
+      "union_before_cap": 10,
+      "union_after_cap": 10,
+      "per_model": {
+        "opencoder-8b-instruct": 10,
+        "qwen2.5-coder-7b": 10,
+        "qwen2.5-coder-14b": 10,
+        "qwen2.5-coder-32b": 10,
+        "r1-distill-qwen-7b": 0,
+        "seed-coder-8b-instruct": 0
+      }
+    },
+    "langgraph": {
+      "union_before_cap": 89,
+      "union_after_cap": 81,
+      "per_model": {
+        "opencoder-8b-instruct": 81,
+        "qwen2.5-coder-7b": 63,
+        "qwen2.5-coder-14b": 54,
+        "qwen2.5-coder-32b": 54,
+        "r1-distill-qwen-7b": 46,
+        "seed-coder-8b-instruct": 27
+      }
+    },
+    "numpy": {
+      "union_before_cap": 65,
+      "union_after_cap": 65,
+      "per_model": {
+        "opencoder-8b-instruct": 65,
+        "qwen2.5-coder-7b": 48,
+        "qwen2.5-coder-14b": 48,
+        "qwen2.5-coder-32b": 48,
+        "r1-distill-qwen-7b": 48,
+        "seed-coder-8b-instruct": 48
+      }
+    },
+    "pandas": {
+      "union_before_cap": 94,
+      "union_after_cap": 89,
+      "per_model": {
+        "opencoder-8b-instruct": 86,
+        "qwen2.5-coder-7b": 76,
+        "qwen2.5-coder-14b": 76,
+        "qwen2.5-coder-32b": 76,
+        "r1-distill-qwen-7b": 76,
+        "seed-coder-8b-instruct": 76
+      }
+    },
+    "pydantic": {
+      "union_before_cap": 49,
+      "union_after_cap": 45,
+      "per_model": {
+        "opencoder-8b-instruct": 45,
+        "qwen2.5-coder-7b": 32,
+        "qwen2.5-coder-14b": 28,
+        "qwen2.5-coder-32b": 28,
+        "r1-distill-qwen-7b": 12,
+        "seed-coder-8b-instruct": 10
+      }
+    },
+    "pymatgen": {
+      "union_before_cap": 21,
+      "union_after_cap": 21,
+      "per_model": {
+        "opencoder-8b-instruct": 15,
+        "qwen2.5-coder-7b": 1,
+        "qwen2.5-coder-14b": 9,
+        "qwen2.5-coder-32b": 9,
+        "r1-distill-qwen-7b": 9,
+        "seed-coder-8b-instruct": 9
+      }
+    },
+    "rdkit": {
+      "union_before_cap": 26,
+      "union_after_cap": 26,
+      "per_model": {
+        "opencoder-8b-instruct": 26,
+        "qwen2.5-coder-7b": 21,
+        "qwen2.5-coder-14b": 21,
+        "qwen2.5-coder-32b": 21,
+        "r1-distill-qwen-7b": 10,
+        "seed-coder-8b-instruct": 7
+      }
+    },
+    "scanpy": {
+      "union_before_cap": 16,
+      "union_after_cap": 16,
+      "per_model": {
+        "opencoder-8b-instruct": 16,
+        "qwen2.5-coder-7b": 6,
+        "qwen2.5-coder-14b": 6,
+        "qwen2.5-coder-32b": 6,
+        "r1-distill-qwen-7b": 6,
+        "seed-coder-8b-instruct": 4
+      }
+    },
+    "scipy": {
+      "union_before_cap": 271,
+      "union_after_cap": 271,
+      "per_model": {
+        "opencoder-8b-instruct": 271,
+        "qwen2.5-coder-7b": 193,
+        "qwen2.5-coder-14b": 193,
+        "qwen2.5-coder-32b": 193,
+        "r1-distill-qwen-7b": 86,
+        "seed-coder-8b-instruct": 84
+      }
+    },
+    "sqlalchemy": {
+      "union_before_cap": 45,
+      "union_after_cap": 45,
+      "per_model": {
+        "opencoder-8b-instruct": 45,
+        "qwen2.5-coder-7b": 33,
+        "qwen2.5-coder-14b": 32,
+        "qwen2.5-coder-32b": 32,
+        "r1-distill-qwen-7b": 26,
+        "seed-coder-8b-instruct": 15
+      }
+    },
+    "torch": {
+      "union_before_cap": 598,
+      "union_after_cap": 300,
+      "per_model": {
+        "opencoder-8b-instruct": 300,
+        "qwen2.5-coder-7b": 201,
+        "qwen2.5-coder-14b": 168,
+        "qwen2.5-coder-32b": 168,
+        "r1-distill-qwen-7b": 168,
+        "seed-coder-8b-instruct": 97
+      }
+    },
+    "transformers": {
+      "union_before_cap": 3227,
+      "union_after_cap": 300,
+      "per_model": {
+        "opencoder-8b-instruct": 298,
+        "qwen2.5-coder-7b": 263,
+        "qwen2.5-coder-14b": 243,
+        "qwen2.5-coder-32b": 243,
+        "r1-distill-qwen-7b": 230,
+        "seed-coder-8b-instruct": 198
+      }
+    }
+  },
+  "boundaries": {
+    "opencoder-8b-instruct": "2023-12-01",
+    "qwen2.5-coder-7b": "2024-09-01",
+    "qwen2.5-coder-14b": "2024-11-12",
+    "qwen2.5-coder-32b": "2024-11-12",
+    "r1-distill-qwen-7b": "2025-01-20",
+    "seed-coder-8b-instruct": "2025-06-04"
+  },
+  "boundary_provenance": {
+    "opencoder-8b-instruct": "RefineCode GitHub raw code through Nov 2023 (arXiv 2411.04905); released 2024-11-08",
+    "qwen2.5-coder-7b": "released 2024-09-19; paper's existing frozen-pool boundary",
+    "qwen2.5-coder-14b": "released 2024-11-12; no disclosed data cutoff",
+    "qwen2.5-coder-32b": "released 2024-11-12; no disclosed data cutoff",
+    "r1-distill-qwen-7b": "released 2025-01-20 (base Qwen2.5-Math-7B); no disclosed data cutoff",
+    "seed-coder-8b-instruct": "tech report arXiv 2506.03524 submitted 2025-06-04, HF release ~2025-05; no disclosed data cutoff"
+  },
+  "caps": {
+    "MDAnalysis": 250,
+    "ase": 250,
+    "astropy": 250,
+    "deepchem": 250,
+    "diffusers": 300,
+    "django": 0,
+    "fastapi": 0,
+    "fastmcp": 300,
+    "flask": 0,
+    "httpx": 0,
+    "langgraph": 0,
+    "numpy": 0,
+    "pandas": 0,
+    "pydantic": 0,
+    "pymatgen": 250,
+    "rdkit": 250,
+    "scanpy": 100,
+    "scipy": 300,
+    "sqlalchemy": 0,
+    "torch": 300,
+    "transformers": 300
+  },
+  "stage1_filters": {
+    "exclude_private": true,
+    "exclude_deprecated": true,
+    "exclude_type_aliases": true,
+    "exclude_undocumented": true,
+    "exclude_no_source": true,
+    "exclude_foreign_source": true,
+    "exclude_thin_docstring": true,
+    "min_docstring_chars": 40,
+    "exclude_internal_module_path": true,
+    "internal_module_segments": [
+      "base",
+      "main",
+      "impl",
+      "internals"
+    ],
+    "exclude_unrelated_plumbing": true,
+    "exclude_vendored": true,
+    "exclude_self_declared_private": true,
+    "min_params": 0,
+    "exclude_name_patterns": []
+  },
+  "suffix_cap": {
+    "enabled": true,
+    "min_group_size": 5,
+    "max_per_suffix": 3
+  },
+  "diversity": {
+    "enabled": true,
+    "lambda_": 0.5,
+    "model": "all-MiniLM-L6-v2",
+    "max_doc_chars": 500
+  },
+  "include_modified": true,
+  "api_map_sha256": {
+    "MDAnalysis==2.10.0": "2010d7e869baff5f9104fd838ecad8f471b59f5a25cc903d54aa8edaf6a6bd1c",
+    "MDAnalysis==2.6.1": "81eb90cc5a1f0e8f55425c1b56e6cc527684e5bc821c99bb12a2cfdb2578bb97",
+    "MDAnalysis==2.7.0": "47fb29a7935cf31daac5cfa2c792d80e9a3f6b939f7108999ed36a3a701525b8",
+    "MDAnalysis==2.8.0": "187d8468cffb3e03d0229212363becd5f43fcb85d871fb873a6298951858f83a",
+    "MDAnalysis==2.9.0": "027d136c4914c16bb69e5afce1d58d1639504b4a860b9d27bf27f7e540f37f1c",
+    "ase==3.28.0": "4f9e6accc64bd6b11c087aa35d9040bf37509a24a850326d6b6f81a04afe4a9e",
+    "ase==3.22.1": "bd4435f498086fabf29e45551364cbc10cf08ba8bb28a8c76175b80015e81b37",
+    "ase==3.23.0": "b5310559400eec6a2bfa84f30171a56ef6d83d78ec117cb4a50cc12301f30738",
+    "ase==3.24.0": "dca9a0e5674a8bc4dde70c09767e5eed1ade6dfb7a36b314e34bce420a37405d",
+    "ase==3.25.0": "4d4559837bd7e7d6bd95fd8ee66db2866ab5ede5d13f9ac2f6773314d3b3828c",
+    "astropy==7.2.0": "99b7f80b3a014fba3ef776fe897599065e3ac1d96237668e36a5ec3365118cf5",
+    "astropy==6.0.0": "b35d0fc6f987643948d8d40cd96c47c80501b0567c4341a9f11e40a5b5b67730",
+    "astropy==6.1.3": "aa2f5d38366a1cf458c25efac8ddd6ecb0ce4f215f7bb3e7857d88b80cb5b3e0",
+    "astropy==6.1.6": "9d1562ce3183ae9b77088e631146b9d7a076796c771f1c218c4902b2d2c5e93f",
+    "astropy==7.0.0": "b80c1a5f99af7387ed8754c119c8aff040519817e87dc104ee4899a0a90ee091",
+    "astropy==7.1.0": "cee44d05d04e7ee8bb8647538c0d0707ac034f31a9e69cde4703d37eaf44e4dc",
+    "deepchem==2.8.0": "1a1e3ae38803774b5a1008c3308d3af569c57420fb5f8578d83657d2d28884f6",
+    "deepchem==2.7.1": "58f8cd454b8adacfca8b5e736718808f60975b8602e3cd54c9d6a31830fe4e64",
+    "diffusers==0.38.0": "4b9173a9660aef9fcf5fe1e0f5dae2fff7390fc48f907f3d899e33befa65f91e",
+    "diffusers==0.24.0": "63a6dc23c29abe6494c6328f1df5ead5054cfcd68ce90b30d97a8b07b6ee79e5",
+    "diffusers==0.30.2": "e3fc0ae24aba13382cbf4970b8e83be2189a4a8e43b379cc213dde5321a65f5e",
+    "diffusers==0.31.0": "77f0dadd0825dda250922bb67fff70bfd9857e7b1f318a50655c578dbaf3a1e2",
+    "diffusers==0.32.2": "f3c928ad94ef1b7d98c18a09333eddb0995fe0f5616eb69e82eb252196f12a7d",
+    "diffusers==0.33.1": "cbea098a61d0263205b21289bf828225aa05c917eaf34de3001358a9301715b7",
+    "Django==5.2.13": "22ee08384f3372d0348b24001f702881ba1d9e7d0ed0fe22087eb951036873e5",
+    "Django==4.2.7": "49ccac3de7a953a0672cd74d3048d62c6eaba5beb34605f02138fc2bd5bb6ae1",
+    "Django==5.1": "3409c2e9a02cdf915746e07a9028df805345ca1d923350e4d391874d1ff2dd92",
+    "Django==5.1.3": "2587c09fbc255869db8281cf3ed71d49e10b28f355a9654cd524f5a6a1f0df45",
+    "Django==5.1.5": "9db422bed73f6a0c3f56be20b18abd13ef904404f15daac5b8661f94789149ad",
+    "Django==5.2.1": "3f6804a0e82316ea9839e4a7aa2b96324207d6e7641badfb8eef6fae80942c24",
+    "fastapi==0.136.1": "debde49cb6d098eb8245d8f007e00fadc168553bec04fc87426310b5c5981cd4",
+    "fastapi==0.104.1": "5d0b1f5eed873d10b0c3f5fee31b4f3a7eb195b76e53dd6a8657da0113c38a4c",
+    "fastapi==0.112.2": "44abd7cc5415ec8204c7bc1653542b5b27286d6461f55a9147eb89be9daff883",
+    "fastapi==0.115.4": "0f827e53c7f3fe863bdf4c14a55daba5140f91706e278a83ffa140fb5b7736d7",
+    "fastapi==0.115.6": "9d3c70e2cdffa6a3986939060d327263012973bbb2121cafb3e83cc19c2e377c",
+    "fastapi==0.115.12": "a81924927b1a86aef21f248cc65204784cbfbb6c16b027334d205393e1f64606",
+    "fastmcp==3.2.4": "41f7317ce098ce964062eefb70cc5615dc16a70cfd9ee5bcb569b2debe5232e5",
+    "fastmcp==0.4.1": "1f98092ba4bc693cfaea85fa5b1ad7aaf85131867e28ae03e69df17a9966d548",
+    "fastmcp==2.6.1": "46dfae8334c0887ed67dcbdfaf6fd3bf94991120a3d056ddee156094dca58e97",
+    "flask==3.1.3": "9f2d66473a9660240af7d835192855fe1492ee7abe28e2f3a8b6a64278af5794",
+    "flask==3.0.0": "d760251187632fc5ae5a49772dfff8be95383aabf10a492abd0a2218b8e46c79",
+    "flask==3.0.3": "b5004aa385d60b2c72453462769cfc044c097b95d4071c28847a0eebadf19e37",
+    "flask==3.1.0": "13db0dc2e88fa614d15b61ffd894c57786eec5acc6a13750e2f6a789276fc33b",
+    "flask==3.1.1": "c19551d82a3d994a77c856c2492b78fa925c4ad21e6bd8054710bc11b6a1f265",
+    "httpx==0.28.1": "1ff38f36dd91f71f8057d0b07777aee877564dfea27223875fa934f8907fcadd",
+    "httpx==0.25.2": "1e6712e9420bf645f08f1da510b948062d4c2b4ffa6eaec18feeda255d15b946",
+    "httpx==0.27.2": "2153e642b0d1a54e00cd3f53325d9991ad4bfce132f6e5c7c0a3b7abf18a353a",
+    "langgraph==1.1.10": "2c79e6e8959f8c48353b6f30f8aa6b29aa5a5556e56b601dc085a9264f0188a5",
+    "langgraph==0.2.15": "cc045c70d785bf72cf9c7cdaa97b7f722e2cb8da1de190ead361ff612b4ed32b",
+    "langgraph==0.2.45": "1076edb5399131846fb60dc11abff89016bb3da4743729cb34588f05ff85aa0d",
+    "langgraph==0.2.64": "f30d9fb4d2a893243d36eacfc5738c7f81dcdc0186a6fa5c12cbe1768efd7eac",
+    "langgraph==0.4.8": "5bcd8140e2ca8535c0acb01038e9c7995d273a3a8b1a2eaa9354ccf10d03df8d",
+    "numpy==2.4.4": "5d733582a9a3e21855d51e0f37b30ef850666a530d9d2324ba7018e50a246eca",
+    "numpy==1.26.2": "4de6fb888e7c903857313f816cba2d4ef07d903b8f4440d417a302b12db89de9",
+    "numpy==2.1.0": "e154c1d7de4d12e9d04a35acdd9ee2d976e1f50842f3e2b52db18d02ef85052e",
+    "numpy==2.1.3": "0eb6a7c6df79ff41b98c8f059f00ceb766c1bfb8de7efcf51d39dba183cdaf15",
+    "numpy==2.2.2": "eba853545d331f1100dd2b51b5a4f155debd83a5a22e29748357b27934f85e1d",
+    "numpy==2.2.6": "020d6f21fac28c31141bc3632c409aa4e5378935c58dc23339e67133fe27a40a",
+    "pandas==3.0.2": "962f5e66f463d13ccf708b2b7be87c9b00b3a18ff7f76f473e178ebe7d575e53",
+    "pandas==2.1.3": "5d9da216b043e8d26775bc88ce2160993f4603cad272821ceb4e29251cb21c64",
+    "pandas==2.2.2": "6f116ca81e517dd1e730b2f10017a54b7988fb99daa00ef4412522f71f2c2e7a",
+    "pandas==2.2.3": "f91ab4d755f1ecdc132ca15e9636a5edc6b3038e29b362fcfac0df0b147977c1",
+    "pydantic==2.13.3": "3f52678c12901170847f5dd7eb9d79c7c5ed1a52dc0d76f1b6b8396a771c20dc",
+    "pydantic==2.5.2": "c73c2cb1874234d5a13d21f3f2d7fc6a8bc7a8111c48d4e6c908992be0266a0c",
+    "pydantic==2.8.2": "d8bbe6d6abece31023cb8575db03423922f31f05d05a9dd29983902a22b085ab",
+    "pydantic==2.9.2": "fd51eaf07d721535a8109cc4bdf898759c71662325f1314935c38b293f9c1564",
+    "pydantic==2.10.5": "b8541cd105491820f3873991d8f3b6934c9d020100f2557d7df2b3fdd84ce601",
+    "pydantic==2.11.5": "de7051c93920c43239917c301eaa7b7e0b0cd912dfa0cfebf52236c7b28dc2e4",
+    "pymatgen==2026.3.23": "3aad13559995d6a73bbba2d176949adcdc2c52966a34062646a81fa5bc1e2474",
+    "pymatgen==2023.11.12": "9991ef6f1916abe8f33bf081a939273711867a9c77b264ba5c0b055a3f5c172c",
+    "pymatgen==2024.8.9": "40d3615d066226e4c005a37fb926791b8777bea5284227b08b21b021cd7e2f2b",
+    "pymatgen==2024.10.29": "0d5a68d6f8134005b095df4142c98acd3bd02ba291b1be0329acdca2e93177c2",
+    "pymatgen==2025.1.9": "b77fb382ed157469a01953ce0e915c4b797c3b363aeb0047f5f88db0304ea84f",
+    "pymatgen==2025.5.28": "e909cb29534d371d95fd149377df683024ca40cba8d54e00647529661e05f35e",
+    "rdkit==2026.3.1": "6cb2a1b4f68e63e60c22c5a004be18cacb6129c9473b27ea03022ea454733745",
+    "rdkit==2023.9.2": "addde743f4cb13ef4ebcfe3f558cbfedf4e11fc15329be5660a731b032695000",
+    "rdkit==2024.3.5": "d7a5016ee753b7a5d9ea9064c0e68d35c71cabf4859cac322562c1e2a6ca544b",
+    "rdkit==2024.3.6": "552c1a93478a705a954c4c901698f3b4f9aa019b3f510fc6496b2e853c4def51",
+    "rdkit==2024.9.4": "81837adaf4ee38307822ff0231d78aa80a4bc0086c414fee606e49d85f273a62",
+    "rdkit==2025.3.2": "816e8c2fa19046d38a3fa7fb56676f14486e9281110c6536ac341ed8137b77d4",
+    "scanpy==1.11.5": "71aaf0947b67ce5c836ad456113d5503393004086b684dba1dc729d7a7e9af85",
+    "scanpy==1.9.6": "b7ab131bab68d4117e8da79009a6d618f7242bfc0fd8d747a73b51607d501c20",
+    "scanpy==1.10.2": "2b39e5b19240d6c626b3e453bad8ff85591f59b2a1612da0447557c96976ae18",
+    "scanpy==1.10.3": "4462902a19b8ab897c96db7fdfc6e8bf896f44ee4f8d414369a0964a89f55a8b",
+    "scanpy==1.10.4": "42c47222aa2136bb1ff3e6cf174d375587baa3446a0522f9c1e248511e53106d",
+    "scanpy==1.11.2": "45da8c913a6b00afae4554e77bfb809d76f3248d2ad9b1b02d6f3077e357f1c6",
+    "scipy==1.17.1": "d6d8b834f79d3256b4d665458851bfeef84408c39f8b36a976e8cf4e1e9c69d9",
+    "scipy==1.11.4": "559c6c2f24462829c9ded1f89bc167838175f8b61e29343468af842d6555b224",
+    "scipy==1.14.1": "f42b5402731a5a200cc338eb83f69b206d7f11c2de637470737cfef05a483239",
+    "scipy==1.15.1": "380ae93e12ed57c0ebde6507265106dba8d5a7bef6a802378ee6155bc7497055",
+    "scipy==1.15.3": "8642f359f15d708704d4217f888887fbb75f5e963bea4d473625aec38aa59ddc",
+    "SQLAlchemy==2.0.49": "0e2890701823f7909db653bfce7328a142ed92b466f40ec35769c972ef3fa5e1",
+    "SQLAlchemy==2.0.23": "d86fe79fe3f167de079215ba0af98ee2d81a9acdda97f87e4418a23de12987db",
+    "SQLAlchemy==2.0.32": "7b6f4fc01bd6a5b65e78b3651ddba466e1fe80e8f3cfdce80f2e1b2a8815c691",
+    "SQLAlchemy==2.0.36": "c98e158404851c81b082ff03022ae3312fdd3a11893ed65248ecd81108fcdad0",
+    "SQLAlchemy==2.0.37": "0a2ffe5f5b8cf5396494e5bdd4c42aeb8af455ab3ab0753aec10e12463126cc8",
+    "SQLAlchemy==2.0.41": "b6d886e0adda584ffe283c5d8be88c054693f4b02740555fd5c5f58585e77dde",
+    "torch==2.11.0": "f8664736c4925d26b58396016fe772d4fbdf1f1f4754f8cbb2ab9e0c8b15fc35",
+    "torch==2.1.1": "7d2a5a252f941f8daf57f91f7d54930ece26acd24016def5f692e90cf5d1e2c6",
+    "torch==2.4.0": "cca9a1cca3aaa0ec65355d121aa10e57ee746b04438bf061380ddbc0bb067ba9",
+    "torch==2.5.1": "33460a35f43c76ccab0f7c8704e1160735c066c0dbac4c2e36281fcbbe7ec4f8",
+    "torch==2.7.0": "87b222c6f9410098c92489d1207f23fa245dbbec552abe81510d9d4f98304596",
+    "transformers==5.7.0": "9f7e2bdee4cb318ef42b1adf9314030fc8998ef0f56337439ea909ab71c6d33d",
+    "transformers==4.35.2": "2bf6d9d1db9cdae2441dc823efbed1af910206c3aa714a3027a8b55a5952fd3b",
+    "transformers==4.44.2": "489fec403a6090b86999ead2ea9a49c8fe7e61e96a7d3c656d5ad00d51f479f6",
+    "transformers==4.46.2": "15fe43f5fae0ea2a5623709fecaa5b8452593ef03591560ba330c58ed7d644ee",
+    "transformers==4.48.0": "dade5c8aee4b30d0315cedfb114d4b8c263a56515384a5300ab13f466e8b1f52",
+    "transformers==4.52.4": "beeabda1a5b2684185f18f539a68d3fd45405ef42c56b87233830862ba55591e"
+  },
+  "notes": [
+    "max_novel/MMR applied ONCE at the union level so every backbone's pool is a subset of this frozen set.",
+    "deepchem has no release after 2.8.0 (2024-04-02), so it can only contribute novel APIs to opencoder-8b-instruct."
+  ]
+}

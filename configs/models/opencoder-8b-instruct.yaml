@@ -1,0 +1,7 @@
+name: infly/OpenCoder-8B-Instruct
+revision: 01badbbf10c2dfd7e2a0b5f570065ef44548576c
+max_seq_len: 8192          # the model's own context window
+max_new_tokens: 2048
+thinking_mode: false
+trust_remote_code: true    # the repository ships custom tokenizer code
+tensor_parallel_size: 1

@@ -1,0 +1,12 @@
+# rdkit (AI for science). Versions are the two pinned releases the candidate pool was diffed on.
+package: rdkit
+domain: ai4science
+old_version: 2023.9.2
+new_version: 2026.3.1
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  max_novel: 250
+  doc_source: html
+  doc_url: https://www.rdkit.org/docs/
+  changelog_url: https://github.com/rdkit/rdkit/releases

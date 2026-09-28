@@ -1,0 +1,11 @@
+# pandas (data science). Versions are the two pinned releases the candidate pool was diffed on.
+package: pandas
+domain: data_science
+old_version: 2.1.3
+new_version: 3.0.2
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  doc_source: html
+  doc_url: https://pandas.pydata.org/docs/
+  changelog_url: https://github.com/pandas-dev/pandas/releases

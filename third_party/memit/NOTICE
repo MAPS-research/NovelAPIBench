@@ -1,0 +1,29 @@
+MEMIT (Meng et al., "Mass-Editing Memory in a Transformer", ICLR 2023)
+Upstream: https://github.com/kmeng01/memit, commit 80426fd9316cf9a50c5ba15e0912f2c2c5bfe84b
+License: MIT (see LICENSE in this directory)
+
+Only the modules that the MEMIT update needs are vendored:
+
+  memit/  __init__, compute_ks, compute_z, memit_hparams, memit_main
+  rome/   __init__, layer_stats, repr_tools, tok_dataset
+  util/   __init__, generate, globals, hparams, logit_lens, nethook, runningstats
+
+The copies are unmodified except for the changes below, which are applied directly to the
+vendored sources; `upstream.patch` is the complete diff against the upstream commit.
+
+1. Decoder-layer outputs (memit/compute_z.py, compute_z). Upstream indexes `output[0]` of a
+   traced decoder layer, assuming the GPT-2/GPT-J convention of returning a tuple. Current
+   HuggingFace Qwen2 layers return the hidden-state tensor itself; both forms are accepted.
+2. Brace-safe substitution (memit/compute_z.py, memit/compute_ks.py, memit/memit_main.py,
+   rome/repr_tools.py). Upstream fills the subject/prompt placeholder with `str.format`, which
+   fails on prompts that contain literal braces (f-strings, dict literals). Every such call site
+   uses `str.replace("{}", x, 1)` instead, which fills the first `{}` only.
+3. Placeholder check (rome/repr_tools.py, get_words_idxs_in_templates). Upstream requires exactly
+   one `{}` per template; task code can contain further `{}`, so at least one is required and the
+   first is used (as upstream's `str.index` already does).
+4. Key/value extraction (rome/repr_tools.py, get_reprs_at_idxs). The traced forward pass stops
+   at the traced module (`stop=True`) and runs in batches of 16 instead of 128. Neither changes
+   the extracted representations; both keep the memory use of 1,502 long prompts bounded.
+5. rome/__init__.py no longer imports the ROME editor, and util/globals.py defines its paths as
+   constants instead of reading `globals.yml` from the working directory
+   (novelapibench.adaptation.memit sets the covariance directory explicitly).

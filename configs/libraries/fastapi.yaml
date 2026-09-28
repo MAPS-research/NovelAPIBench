@@ -1,0 +1,11 @@
+# fastapi (software engineering). Versions are the two pinned releases the candidate pool was diffed on.
+package: fastapi
+domain: swe
+old_version: 0.104.1
+new_version: 0.136.1
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  doc_source: html
+  doc_url: https://fastapi.tiangolo.com/
+  changelog_url: https://fastapi.tiangolo.com/release-notes/

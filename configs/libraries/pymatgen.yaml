@@ -1,0 +1,17 @@
+# pymatgen (AI for science). Versions are the two pinned releases the candidate pool was diffed on.
+package: pymatgen
+domain: ai4science
+old_version: 2023.11.12
+new_version: 2026.3.23
+python_version: "3.11"
+eval_timeout_seconds: 150
+construction:
+  max_novel: 250
+  doc_source: html
+  doc_url: https://pymatgen.org/
+  changelog_url: https://github.com/materialsproject/pymatgen/releases
+  introspect_timeout_seconds: 900
+  implementation_timeout_seconds: 180
+  stage3_exec_timeout_seconds: 150
+  stage3_validation_timeout_seconds: 150
+  stage3_sandbox_memory_mb: 32768

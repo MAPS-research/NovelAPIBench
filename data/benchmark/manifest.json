@@ -1,0 +1,235 @@
+{
+  "name": "NovelAPIBench",
+  "release_boundary": "2023-12-01",
+  "counts": {
+    "candidate_apis": 2600,
+    "bundles": 1893,
+    "stage3_tasks": 2330,
+    "excluded_tasks": 303,
+    "instances": {
+      "qwen2.5-coder-7b": {
+        "tasks_before_exclusion": 1899,
+        "tasks": 1670
+      },
+      "qwen2.5-coder-14b": {
+        "tasks_before_exclusion": 1867,
+        "tasks": 1628
+      },
+      "qwen2.5-coder-32b": {
+        "tasks_before_exclusion": 1786,
+        "tasks": 1569
+      },
+      "opencoder-8b-instruct": {
+        "tasks_before_exclusion": 1950,
+        "tasks": 1691
+      },
+      "seed-coder-8b-instruct": {
+        "tasks_before_exclusion": 1905,
+        "tasks": 1661
+      },
+      "r1-distill-qwen-7b": {
+        "tasks_before_exclusion": 1986,
+        "tasks": 1740
+      }
+    },
+    "rq3_train": 1502,
+    "rq3_test": 397
+  },
+  "libraries": {
+    "MDAnalysis": {
+      "package": "MDAnalysis",
+      "domain": "ai4science",
+      "old_version": "2.6.1",
+      "new_version": "2.10.0"
+    },
+    "ase": {
+      "package": "ase",
+      "domain": "ai4science",
+      "old_version": "3.22.1",
+      "new_version": "3.28.0"
+    },
+    "astropy": {
+      "package": "astropy",
+      "domain": "ai4science",
+      "old_version": "6.0.0",
+      "new_version": "7.2.0"
+    },
+    "deepchem": {
+      "package": "deepchem",
+      "domain": "ai4science",
+      "old_version": "2.7.1",
+      "new_version": "2.8.0"
+    },
+    "diffusers": {
+      "package": "diffusers",
+      "domain": "dl",
+      "old_version": "0.24.0",
+      "new_version": "0.38.0"
+    },
+    "django": {
+      "package": "Django",
+      "domain": "swe",
+      "old_version": "4.2.7",
+      "new_version": "5.2.13"
+    },
+    "fastapi": {
+      "package": "fastapi",
+      "domain": "swe",
+      "old_version": "0.104.1",
+      "new_version": "0.136.1"
+    },
+    "fastmcp": {
+      "package": "fastmcp",
+      "domain": "agent_tool",
+      "old_version": null,
+      "new_version": "3.2.4"
+    },
+    "flask": {
+      "package": "flask",
+      "domain": "swe",
+      "old_version": "3.0.0",
+      "new_version": "3.1.3"
+    },
+    "httpx": {
+      "package": "httpx",
+      "domain": "swe",
+      "old_version": "0.25.2",
+      "new_version": "0.28.1"
+    },
+    "langgraph": {
+      "package": "langgraph",
+      "domain": "agent_tool",
+      "old_version": null,
+      "new_version": "1.1.10"
+    },
+    "numpy": {
+      "package": "numpy",
+      "domain": "data_science",
+      "old_version": "1.26.2",
+      "new_version": "2.4.4"
+    },
+    "pandas": {
+      "package": "pandas",
+      "domain": "data_science",
+      "old_version": "2.1.3",
+      "new_version": "3.0.2"
+    },
+    "pydantic": {
+      "package": "pydantic",
+      "domain": "swe",
+      "old_version": "2.5.2",
+      "new_version": "2.13.3"
+    },
+    "pymatgen": {
+      "package": "pymatgen",
+      "domain": "ai4science",
+      "old_version": "2023.11.12",
+      "new_version": "2026.3.23"
+    },
+    "rdkit": {
+      "package": "rdkit",
+      "domain": "ai4science",
+      "old_version": "2023.9.2",
+      "new_version": "2026.3.1"
+    },
+    "scanpy": {
+      "package": "scanpy",
+      "domain": "ai4science",
+      "old_version": "1.9.6",
+      "new_version": "1.11.5"
+    },
+    "scipy": {
+      "package": "scipy",
+      "domain": "data_science",
+      "old_version": "1.11.4",
+      "new_version": "1.17.1"
+    },
+    "sqlalchemy": {
+      "package": "SQLAlchemy",
+      "domain": "swe",
+      "old_version": "2.0.23",
+      "new_version": "2.0.49"
+    },
+    "torch": {
+      "package": "torch",
+      "domain": "dl",
+      "old_version": "2.1.1",
+      "new_version": "2.11.0"
+    },
+    "transformers": {
+      "package": "transformers",
+      "domain": "dl",
+      "old_version": "4.35.2",
+      "new_version": "5.7.0"
+    }
+  },
+  "copyleft_libraries": {
+    "MDAnalysis": "LGPL-3.0-or-later",
+    "ase": "LGPL-2.1-or-later"
+  },
+  "sha256": {
+    "LICENSES.md": "2422b17b3133f7b2887a51cad7cf6f2984cd1068f8fe12138e8ca4ec642dcef6",
+    "adaptation/memit_context_templates.json": "6044650c97fcb1311d1a9e97d7b0f442b6480a6a81f6d638fa657a78a712384c",
+    "benchmark/bundles.jsonl": "8fdca2d903f7d31d5ce6407ddb7b08a06d2287b9eff5a26bf4522e2b5ba665ac",
+    "benchmark/excluded_tasks.tsv": "5e948b92dcfa101e7b0c4901a60b8e35565674538a35a1a31bff92f438763eec",
+    "benchmark/expected_calls.jsonl": "c61bc8d1bacd35ae88d282110e46951e4992bc7a2846f19d768254dae30612ad",
+    "benchmark/filters/c1.jsonl": "2b21a77750dd5924f8287f5e91249317220ba371d582bd8c7338d2aee637dde7",
+    "benchmark/filters/c2/opencoder-8b-instruct.completions.jsonl.gz": "4e6aa4dfae1e76776eb5356874869b9725a550514e9aacb9d93634d541d2abd5",
+    "benchmark/filters/c2/opencoder-8b-instruct.jsonl": "d168e25e2187c3eed8d1f8b67e2539e184ea758fa6b519a62766b44e39a0b4d8",
+    "benchmark/filters/c2/qwen2.5-coder-14b.completions.jsonl.gz": "694e73901b63e049c40b0ad79a2d6de7794cffbdf28bce27ef33781d594cf79f",
+    "benchmark/filters/c2/qwen2.5-coder-14b.jsonl": "19b59401621fb13d3627a00febf8b13aed0871fb65df47d4177e58cfe7c906a2",
+    "benchmark/filters/c2/qwen2.5-coder-32b.completions.jsonl.gz": "c5dcaa6bab1c67062e1f68c631db49dc5bfa482b0660df30f75e60b73a6e079f",
+    "benchmark/filters/c2/qwen2.5-coder-32b.jsonl": "605736a37e0b191e262f845ac9c6d23e7d74ed0356afe3c9e0ff1085b71afc95",
+    "benchmark/filters/c2/qwen2.5-coder-7b.completions.jsonl.gz": "16a3c19750b3cc6c081ed120404c3b002b00310157b9630606ff07e46e5aedf8",
+    "benchmark/filters/c2/qwen2.5-coder-7b.jsonl": "154230b15ae0a25476a3051359a585d06d44b2dff7cf8fd364f829c0be60297c",
+    "benchmark/filters/c2/r1-distill-qwen-7b.completions.jsonl.gz": "a9fe8e0dc7630d5b016d3da0fef5c3b0f49fa98fcb9d0e3eca9e76fff7137def",
+    "benchmark/filters/c2/r1-distill-qwen-7b.jsonl": "43860c295745d1ef5daa7ff2778f89258ce12ab34d3118c206754044405db86d",
+    "benchmark/filters/c2/seed-coder-8b-instruct.completions.jsonl.gz": "8fccf2c73570cf1fd68611837e3485f02f1ec05a6f428cf229da87c9e601a4cb",
+    "benchmark/filters/c2/seed-coder-8b-instruct.jsonl": "dd498d701f7bcc2bc28d5f06d39ae48779c5863d2dca9e92cc57798a1b874d16",
+    "benchmark/filters/c3/opencoder-8b-instruct.jsonl": "3076191036301c32e90605f2b3a93b180a9d287ee624b5f0cdfb28f3d05e4e29",
+    "benchmark/filters/c3/qwen2.5-coder-14b.jsonl": "831c85b8add23ffaf81e251c95d251e910d480200dee68190765c6d63c5990d5",
+    "benchmark/filters/c3/qwen2.5-coder-32b.jsonl": "d7d34c5d663685ecf466d753f3e1850db234c7427941bf43fcb3c32375f497cb",
+    "benchmark/filters/c3/qwen2.5-coder-7b.jsonl": "e688b62201857274d9c361263710b1431bb317b8431adcc2fb961759c2bc5f10",
+    "benchmark/filters/c3/r1-distill-qwen-7b.jsonl": "538e9f6a9fc4149b4fddd8b87af71e83288b34769e224f63b5b97cd48b8e6a18",
+    "benchmark/filters/c3/seed-coder-8b-instruct.jsonl": "5209356104eab41e1f234c5c7ac6f60fc6b38e9e421906379281d26bf95c940b",
+    "benchmark/filters/c3_recheck.jsonl.gz": "b4e9ab3a229be8225d3265eeb168ece8aabcfc9a6a312b7dae57df37bf0df181",
+    "benchmark/instances/opencoder-8b-instruct.txt": "9bdddc007c09dd142b5450bbbb8e4fcc28ace183d41a94e71bb64f588af6dc31",
+    "benchmark/instances/qwen2.5-coder-14b.txt": "a6af16ea273d2e5972caa20e2e73f904a3a4fe797708bba288cbba6321d50a8c",
+    "benchmark/instances/qwen2.5-coder-32b.txt": "7627026b4a969d474964f19de498180cb60b6dce2e2ce4f6354615c4724e3e30",
+    "benchmark/instances/qwen2.5-coder-7b.txt": "a7c160603209421fb885b477088a4cccc98f8386c09d8c29e0e9d1fbae1b6712",
+    "benchmark/instances/r1-distill-qwen-7b.txt": "1fca92b05125438ec850a4db3686564c2989f98afb573278312f1cdc8f9558b9",
+    "benchmark/instances/seed-coder-8b-instruct.txt": "2dff3285090ee895ccb34b4d46ecd2ce4919de70a595f1430b40388cf7a133e0",
+    "benchmark/splits/rq3_test.txt": "ab69c9ab0cf667b36f498cbf1848095949d65d972767e722f4e20c69dafb7cdd",
+    "benchmark/splits/rq3_train.txt": "877dbe673b6db06bb99333c099274ad8787d902e3b2e6ce2bcccc830d30b7a75",
+    "benchmark/tasks.jsonl": "692bcfb98d6d24cfa3cea2ebd2444cc8881cb98a3bf55a11985b73e8c05ac173",
+    "licenses/MDAnalysis/AUTHORS": "51e53bf9a94d44eb03bf1f3fca2ec6394d152567c450e6a0612418d89bd7f7e0",
+    "licenses/MDAnalysis/LICENSE": "7614dd55e5b9851e0a2d197abc0e319dd10034f5a729aa7e698193aa7a8779e9",
+    "licenses/ase/LGPL-2.1.txt": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+    "licenses/ase/LICENSE": "8ca76f9c8c2293e7563ac648d94770c2319d56be588eb190c5f0f9564c92d663",
+    "licenses/astropy/LICENSE.rst": "1e79badb026dba4036780dbccda549ebc71bc1e3e6699083c2bb5ca5801cf838",
+    "licenses/deepchem/LICENSE": "e93ec2f869cea11536743939feb7943e195096ea363e16298620d4622046631f",
+    "licenses/diffusers/LICENSE": "f9e2070c247517b1ddf65f7b11b393484a18da91a958fd18a97bd0f241c3125c",
+    "licenses/django/AUTHORS": "cd00119a418a78ef201aae1fbda4747658568a264bb145ebc1deb41521212629",
+    "licenses/django/LICENSE": "b846415d1b514e9c1dff14a22deb906d794bc546ca6129f950a18cd091e2a669",
+    "licenses/django/LICENSE.python": "765e2b1e339fef8d3e9f12892e7e072a8be309996a0be43ffc5796398ec4e7d4",
+    "licenses/fastapi/LICENSE": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e",
+    "licenses/fastmcp/LICENSE": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+    "licenses/flask/LICENSE.txt": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea",
+    "licenses/httpx/LICENSE.md": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d",
+    "licenses/langgraph/LICENSE": "d9bb52f2e3540d60ff50d8f0f5b6ba649b7fd346948c4c3d086c8afb120763c7",
+    "licenses/numpy/LICENSE.txt": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+    "licenses/pandas/LICENSE": "5c1052e921e62d36ccda50a61585e9c0444b80c62f39b57c4f3f0d5fb62f5071",
+    "licenses/pydantic/LICENSE": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3",
+    "licenses/pymatgen/LICENSE": "7e8f24f9b40be59291c7d82819edb8e93fb344f1d53997880e7db80bbc4f5d89",
+    "licenses/rdkit/LICENSE.md": "e39092217179a1f07b086c349ef4e2ef3e816742c7643dce5351e2e3b88df9d6",
+    "licenses/rdkit/license.txt": "daeb8d194502cbcf34c05c39541a0d02be65bc9bada5b891c1974cd24e9fca30",
+    "licenses/scanpy/LICENSE": "1435eeb7d8618943740178e5b8e14abda6be994f0f0a31894becc20e945ae2bf",
+    "licenses/scipy/LICENSE.txt": "221e59f5e910fd7f94e44f0dac77436a11338c285c6346232e4a850a50da0e94",
+    "licenses/sqlalchemy/LICENSE": "e862bb5b904fb5513c3e14288d7a25a12eb0ecc7847a0a965d310e9a955e7cb9",
+    "licenses/torch/LICENSE": "a0d7abc10248a062a2f309bf12981524973f2a61aadccf4c5099d96d8c388cf4",
+    "licenses/torch/NOTICE": "c2cc7bf0caec7652c2b460a8a470bea1677f241e4ab8e431df34cf17f5a9fec0",
+    "licenses/transformers/LICENSE": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+    "pool/candidates.jsonl": "b847c6f6ed9feb01996bd7d672790c6b66d186dc332a50edceb36290325e4809",
+    "pool/membership.csv": "340cc8db938e6218d81c7404d604bec15f90f149ad5fd766e93ebf687740e1ad"
+  }
+}

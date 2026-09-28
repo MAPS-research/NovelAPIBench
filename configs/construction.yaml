@@ -1,0 +1,153 @@
+# Benchmark construction (paper Section 3.2, Appendix B.2). Loaded as `cfg.construction` by
+# scripts/build_benchmark.py. Library-specific values (versions, candidate caps, documentation and
+# changelog URLs, timeouts, sandbox memory) live under `construction:` in
+# configs/libraries/<library>.yaml. The strong model (GPT-5-mini, low reasoning effort) and its
+# cache are configured in configs/default.yaml.
+
+# Code executed during construction (examples, scenarios, references, C1-C3) runs without the
+# PID-namespace isolation used at evaluation time, as when the benchmark was built.
+sandbox:
+  pid_namespace: false
+
+# ---------------------------------------------------------------------------------------------
+# Stage 1: API discovery
+# ---------------------------------------------------------------------------------------------
+stage1:
+  # Release boundary of each backbone: the release date (an upper bound on the training-data
+  # cutoff), or for OpenCoder the documented end of its raw-code crawl (Nov 2023). The first
+  # entry is the primary boundary; its old_version is `old_version` in configs/libraries/. The
+  # pool is the union of the per-boundary diffs, taken in this order.
+  boundaries:
+    opencoder-8b-instruct: "2023-12-01"
+    qwen2.5-coder-7b: "2024-09-01"
+    qwen2.5-coder-14b: "2024-11-12"
+    qwen2.5-coder-32b: "2024-11-12"
+    r1-distill-qwen-7b: "2025-01-20"
+    seed-coder-8b-instruct: "2025-06-04"
+  # Last stable PyPI release uploaded before each boundary (null: none, so every public API of
+  # new_version is a candidate for that boundary). Recompute with
+  # `build_benchmark.py pool --resolve-boundaries`.
+  old_versions:
+    ase: {opencoder-8b-instruct: "3.22.1", qwen2.5-coder-7b: "3.23.0", qwen2.5-coder-14b: "3.23.0", qwen2.5-coder-32b: "3.23.0", r1-distill-qwen-7b: "3.24.0", seed-coder-8b-instruct: "3.25.0"}
+    astropy: {opencoder-8b-instruct: "6.0.0", qwen2.5-coder-7b: "6.1.3", qwen2.5-coder-14b: "6.1.6", qwen2.5-coder-32b: "6.1.6", r1-distill-qwen-7b: "7.0.0", seed-coder-8b-instruct: "7.1.0"}
+    deepchem: {opencoder-8b-instruct: "2.7.1", qwen2.5-coder-7b: "2.8.0", qwen2.5-coder-14b: "2.8.0", qwen2.5-coder-32b: "2.8.0", r1-distill-qwen-7b: "2.8.0", seed-coder-8b-instruct: "2.8.0"}
+    diffusers: {opencoder-8b-instruct: "0.24.0", qwen2.5-coder-7b: "0.30.2", qwen2.5-coder-14b: "0.31.0", qwen2.5-coder-32b: "0.31.0", r1-distill-qwen-7b: "0.32.2", seed-coder-8b-instruct: "0.33.1"}
+    django: {opencoder-8b-instruct: "4.2.7", qwen2.5-coder-7b: "5.1", qwen2.5-coder-14b: "5.1.3", qwen2.5-coder-32b: "5.1.3", r1-distill-qwen-7b: "5.1.5", seed-coder-8b-instruct: "5.2.1"}
+    fastapi: {opencoder-8b-instruct: "0.104.1", qwen2.5-coder-7b: "0.112.2", qwen2.5-coder-14b: "0.115.4", qwen2.5-coder-32b: "0.115.4", r1-distill-qwen-7b: "0.115.6", seed-coder-8b-instruct: "0.115.12"}
+    fastmcp: {opencoder-8b-instruct: null, qwen2.5-coder-7b: null, qwen2.5-coder-14b: null, qwen2.5-coder-32b: null, r1-distill-qwen-7b: "0.4.1", seed-coder-8b-instruct: "2.6.1"}
+    flask: {opencoder-8b-instruct: "3.0.0", qwen2.5-coder-7b: "3.0.3", qwen2.5-coder-14b: "3.0.3", qwen2.5-coder-32b: "3.0.3", r1-distill-qwen-7b: "3.1.0", seed-coder-8b-instruct: "3.1.1"}
+    httpx: {opencoder-8b-instruct: "0.25.2", qwen2.5-coder-7b: "0.27.2", qwen2.5-coder-14b: "0.27.2", qwen2.5-coder-32b: "0.27.2", r1-distill-qwen-7b: "0.28.1", seed-coder-8b-instruct: "0.28.1"}
+    langgraph: {opencoder-8b-instruct: null, qwen2.5-coder-7b: "0.2.15", qwen2.5-coder-14b: "0.2.45", qwen2.5-coder-32b: "0.2.45", r1-distill-qwen-7b: "0.2.64", seed-coder-8b-instruct: "0.4.8"}
+    MDAnalysis: {opencoder-8b-instruct: "2.6.1", qwen2.5-coder-7b: "2.7.0", qwen2.5-coder-14b: "2.7.0", qwen2.5-coder-32b: "2.7.0", r1-distill-qwen-7b: "2.8.0", seed-coder-8b-instruct: "2.9.0"}
+    numpy: {opencoder-8b-instruct: "1.26.2", qwen2.5-coder-7b: "2.1.0", qwen2.5-coder-14b: "2.1.3", qwen2.5-coder-32b: "2.1.3", r1-distill-qwen-7b: "2.2.2", seed-coder-8b-instruct: "2.2.6"}
+    pandas: {opencoder-8b-instruct: "2.1.3", qwen2.5-coder-7b: "2.2.2", qwen2.5-coder-14b: "2.2.3", qwen2.5-coder-32b: "2.2.3", r1-distill-qwen-7b: "2.2.3", seed-coder-8b-instruct: "2.2.3"}
+    pydantic: {opencoder-8b-instruct: "2.5.2", qwen2.5-coder-7b: "2.8.2", qwen2.5-coder-14b: "2.9.2", qwen2.5-coder-32b: "2.9.2", r1-distill-qwen-7b: "2.10.5", seed-coder-8b-instruct: "2.11.5"}
+    pymatgen: {opencoder-8b-instruct: "2023.11.12", qwen2.5-coder-7b: "2024.8.9", qwen2.5-coder-14b: "2024.10.29", qwen2.5-coder-32b: "2024.10.29", r1-distill-qwen-7b: "2025.1.9", seed-coder-8b-instruct: "2025.5.28"}
+    rdkit: {opencoder-8b-instruct: "2023.9.2", qwen2.5-coder-7b: "2024.3.5", qwen2.5-coder-14b: "2024.3.6", qwen2.5-coder-32b: "2024.3.6", r1-distill-qwen-7b: "2024.9.4", seed-coder-8b-instruct: "2025.3.2"}
+    scanpy: {opencoder-8b-instruct: "1.9.6", qwen2.5-coder-7b: "1.10.2", qwen2.5-coder-14b: "1.10.3", qwen2.5-coder-32b: "1.10.3", r1-distill-qwen-7b: "1.10.4", seed-coder-8b-instruct: "1.11.2"}
+    scipy: {opencoder-8b-instruct: "1.11.4", qwen2.5-coder-7b: "1.14.1", qwen2.5-coder-14b: "1.14.1", qwen2.5-coder-32b: "1.14.1", r1-distill-qwen-7b: "1.15.1", seed-coder-8b-instruct: "1.15.3"}
+    sqlalchemy: {opencoder-8b-instruct: "2.0.23", qwen2.5-coder-7b: "2.0.32", qwen2.5-coder-14b: "2.0.36", qwen2.5-coder-32b: "2.0.36", r1-distill-qwen-7b: "2.0.37", seed-coder-8b-instruct: "2.0.41"}
+    torch: {opencoder-8b-instruct: "2.1.1", qwen2.5-coder-7b: "2.4.0", qwen2.5-coder-14b: "2.5.1", qwen2.5-coder-32b: "2.5.1", r1-distill-qwen-7b: "2.5.1", seed-coder-8b-instruct: "2.7.0"}
+    transformers: {opencoder-8b-instruct: "4.35.2", qwen2.5-coder-7b: "4.44.2", qwen2.5-coder-14b: "4.46.2", qwen2.5-coder-32b: "4.46.2", r1-distill-qwen-7b: "4.48.0", seed-coder-8b-instruct: "4.52.4"}
+  include_modified: true             # signature-modified APIs are candidates too
+  introspect_timeout_seconds: 300    # per version; libraries may raise it
+  filters:
+    min_docstring_chars: 40
+    internal_module_segments: [base, main, impl, internals]
+    exclude_name_patterns: []
+  boilerplate_min_shared: 3          # a docstring shared by >= 3 APIs is inherited boilerplate
+  suffix_cap:                        # CamelCase-suffix groups of new classes
+    min_group_size: 5
+    max_per_suffix: 3
+  max_novel: 0                       # default candidate cap (0: none); libraries set 100-300
+  diversity:                         # MMR selection when a library exceeds its cap
+    enabled: true
+    lambda_: 0.5
+    model: all-MiniLM-L6-v2
+    max_doc_chars: 500
+
+# ---------------------------------------------------------------------------------------------
+# Stage 2: knowledge extraction
+# ---------------------------------------------------------------------------------------------
+stage2:
+  workers: 8                         # APIs extracted in parallel
+  examples:                          # E: generated from S and the docstring, then validated
+    num_candidates: 3
+    max_examples: 5
+    max_retries: 2                   # regenerations with the rejection reasons as feedback
+    sandbox_timeout_seconds: 30
+    sandbox_memory_mb: 16384
+  mechanism:                         # M
+    paper_web_search: true           # look up an associated paper for source-grounded APIs
+    max_input_tokens: 6000           # source given to the source-grounded prompt (x4 chars)
+    min_source_lines: 20             # functions: docstring-length proxy for implementation size
+    min_implementation_lines: 25     # classes: non-comment lines of C
+  implementation:                    # C
+    timeout_seconds: 30              # libraries may raise it (implementation_timeout_seconds)
+    max_chars: 12000
+  exclude_file_io: true              # drop APIs whose primary purpose is file/path I/O
+
+# ---------------------------------------------------------------------------------------------
+# Stage 3: task generation
+# ---------------------------------------------------------------------------------------------
+stage3:
+  workers: 4                         # bundles in parallel
+  temperature: 0.7                   # first generation attempt (GPT-5 models ignore it)
+  retry_temperature: 0.4
+  rewrite_temperature: 0.5           # description rewrite after a leaked API name
+  exec_timeout_seconds: 30           # reference and scenario runs (stage3_exec_timeout_seconds)
+  validation_timeout_seconds: 30     # harness validation (stage3_validation_timeout_seconds)
+  sandbox_memory_mb: 16384           # (stage3_sandbox_memory_mb)
+  harness:
+    min_succeeded_scenarios: 2
+    retry_below: 4                   # re-prompt failed scenarios when fewer succeeded
+    scenario_workers: 6
+    scenario_temperature: 0.3
+    retry_temperature: 0.2
+    use_mock_imports: true           # scenarios: stub missing third-party imports
+    null_stub_check: true            # drop assertions that pass with a stub target
+
+# ---------------------------------------------------------------------------------------------
+# Stage 4: filtering. Timeouts and memory follow Stage 3's validation settings.
+# ---------------------------------------------------------------------------------------------
+stage4:
+  c1:
+    workers: 8
+  c2:                                # per backbone; prompt through the chat template
+    num_samples: 3
+    temperature: 0.8
+    fail_threshold: 3                # keep a task only if all three samples fail
+    repetition_penalty: 1.1          # as run for construction (evaluation uses 1.0)
+    workers: 8                       # sandbox workers of the scoring phase
+  c3:                                # GPT-5-mini with the Full bundle and an import line
+    num_samples: 3
+    temperature: 0.2                 # nominal; GPT-5 models sample at their default
+    pass_threshold: 1                # drop only if all three samples fail
+    workers: 8
+
+# ---------------------------------------------------------------------------------------------
+# Call-record check: reference call records and the second C3 pass (Appendix B.3)
+# ---------------------------------------------------------------------------------------------
+call_records:
+  # (global seed, randomise the reference's constant seeds) of the four reference runs
+  runs: [[11, false], [22, false], [33, true], [44, true]]
+  workers: 8
+c3_recheck:
+  num_samples: 3
+  temperature: 0.2
+  workers: 8
+
+# ---------------------------------------------------------------------------------------------
+# Instances and the RQ3 split
+# ---------------------------------------------------------------------------------------------
+instances:
+  models: [qwen2.5-coder-7b, qwen2.5-coder-14b, qwen2.5-coder-32b, opencoder-8b-instruct,
+           seed-coder-8b-instruct, r1-distill-qwen-7b]
+  shuffle_seed: 42                   # order of each domain's tasks within an instance
+  # Tasks removed from every instance by hand, with the reason.
+  manual_exclusions:
+    llm_f7d8e0180094: evaluation_unsafe    # generated completions signal the evaluator process
+rq3_split:
+  model: qwen2.5-coder-7b            # drawn over this backbone's instance before the second C3 pass
+  train_fraction: 0.8                # by target API, per library
+  seed: 42

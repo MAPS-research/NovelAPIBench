@@ -1,0 +1,15 @@
+# torch (deep learning). Versions are the two pinned releases the candidate pool was diffed on.
+package: torch
+domain: dl
+old_version: 2.1.1
+new_version: 2.11.0
+python_version: "3.11"
+eval_timeout_seconds: 240
+construction:
+  max_novel: 300
+  doc_source: sphinx
+  doc_url: https://pytorch.org/docs/stable/
+  changelog_url: https://github.com/pytorch/pytorch/releases
+  stage3_exec_timeout_seconds: 120
+  stage3_validation_timeout_seconds: 120
+  stage3_sandbox_memory_mb: 32768

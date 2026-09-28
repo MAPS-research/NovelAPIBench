@@ -1,0 +1,2 @@
+# main-environment
+# Tasks of scipy run in the main project environment, which pins scipy==1.17.1 (requirements.txt).

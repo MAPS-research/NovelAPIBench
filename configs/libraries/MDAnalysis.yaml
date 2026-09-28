@@ -1,0 +1,12 @@
+# MDAnalysis (AI for science). Versions are the two pinned releases the candidate pool was diffed on.
+package: MDAnalysis
+domain: ai4science
+old_version: 2.6.1
+new_version: 2.10.0
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  max_novel: 250
+  doc_source: html
+  doc_url: https://www.mdanalysis.org/pages/getting_started/
+  changelog_url: https://userguide.mdanalysis.org/stable/releases.html

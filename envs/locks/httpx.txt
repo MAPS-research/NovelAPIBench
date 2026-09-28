@@ -1,0 +1,2 @@
+# main-environment
+# Tasks of httpx run in the main project environment, which pins httpx==0.28.1 (requirements.txt).

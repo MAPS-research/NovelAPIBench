@@ -1,0 +1,161 @@
+diff -ru a/memit/compute_ks.py b/memit/compute_ks.py
+--- a/memit/compute_ks.py
++++ b/memit/compute_ks.py
+@@ -21,7 +21,7 @@
+         tok,
+         layer,
+         context_templates=[
+-            context.format(request["prompt"])
++            context.replace("{}", request["prompt"], 1)
+             for request in requests
+             for context_type in context_templates
+             for context in context_type
+diff -ru a/memit/compute_z.py b/memit/compute_z.py
+--- a/memit/compute_z.py
++++ b/memit/compute_z.py
+@@ -42,14 +42,14 @@
+ 
+     # Compile list of rewriting and KL x/y pairs
+     rewriting_prompts, kl_prompts = [
+-        context.format(request["prompt"]) + tok.decode(target_ids[:-1])
++        context.replace("{}", request["prompt"], 1) + tok.decode(target_ids[:-1])
+         for context_types in context_templates
+         for context in context_types
+     ], ["{} is a"]
+     all_prompts = rewriting_prompts + kl_prompts
+ 
+     input_tok = tok(
+-        [prompt.format(request["subject"]) for prompt in all_prompts],
++        [prompt.replace("{}", request["subject"], 1) for prompt in all_prompts],
+         return_tensors="pt",
+         padding=True,
+     ).to("cuda")
+@@ -90,11 +90,13 @@
+             if target_init is None:
+                 print("Recording initial value of v*")
+                 # Initial value is recorded for the clean sentence
+-                target_init = cur_out[0][0, lookup_idxs[0]].detach().clone()
++                _h = cur_out[0] if isinstance(cur_out, tuple) else cur_out
++                target_init = _h[0, lookup_idxs[0]].detach().clone()
+ 
+             # Add intervened delta
++            _h = cur_out[0] if isinstance(cur_out, tuple) else cur_out
+             for i, idx in enumerate(lookup_idxs):
+-                cur_out[0][i, idx, :] += delta
++                _h[i, idx, :] += delta
+ 
+         return cur_out
+ 
+@@ -132,9 +134,9 @@
+                 kl_distr_init = kl_log_probs.detach().clone()
+ 
+         # Compute loss on rewriting targets
+-        full_repr = tr[hparams.layer_module_tmp.format(loss_layer)].output[0][
+-            : len(rewriting_prompts)
+-        ]
++        _lo = tr[hparams.layer_module_tmp.format(loss_layer)].output
++        _lo = _lo[0] if isinstance(_lo, tuple) else _lo
++        full_repr = _lo[: len(rewriting_prompts)]
+         log_probs = torch.log_softmax(ln_f(full_repr) @ lm_w + lm_b, dim=2)
+         loss = torch.gather(
+             log_probs,
+@@ -255,7 +257,7 @@
+     else:
+         raise ValueError(f"fact_token={fact_token_strategy} not recognized")
+ 
+-    sentence = prompt.format(subject)
++    sentence = prompt.replace("{}", subject, 1)
+     if verbose:
+         print(
+             f"Lookup index found: {ret} | Sentence: {sentence} | Token:",
+diff -ru a/memit/memit_main.py b/memit/memit_main.py
+--- a/memit/memit_main.py
++++ b/memit/memit_main.py
+@@ -83,7 +83,7 @@
+     for request in requests[:10]:
+         print(
+             f"MEMIT request sample: "
+-            f"[{request['prompt'].format(request['subject'])}] -> [{request['target_new']['str']}]"
++            f"[{request['prompt'].replace('{}', request['subject'], 1)}] -> [{request['target_new']['str']}]"
+         )
+ 
+     # Retrieve weights that user desires to change
+diff -ru a/rome/__init__.py b/rome/__init__.py
+--- a/rome/__init__.py
++++ b/rome/__init__.py
+@@ -1 +1,2 @@
+-from .rome_main import ROMEHyperParams, apply_rome_to_model, execute_rome
++# Modified: upstream imports the ROME editor here (rome_main, compute_u, compute_v), which MEMIT
++# does not use and which is not vendored. MEMIT needs only layer_stats, repr_tools, tok_dataset.
+diff -ru a/rome/repr_tools.py b/rome/repr_tools.py
+--- a/rome/repr_tools.py
++++ b/rome/repr_tools.py
+@@ -32,7 +32,7 @@
+     return get_reprs_at_idxs(
+         model,
+         tok,
+-        [context_templates[i].format(words[i]) for i in range(len(words))],
++        [context_templates[i].replace("{}", words[i], 1) for i in range(len(words))],
+         idxs,
+         layer,
+         module_template,
+@@ -50,8 +50,8 @@
+     """
+ 
+     assert all(
+-        tmp.count("{}") == 1 for tmp in context_templates
+-    ), "We currently do not support multiple fill-ins for context"
++        "{}" in tmp for tmp in context_templates
++    ), "context template must contain at least one {} placeholder"
+ 
+     # Compute prefixes and suffixes of the tokenized context
+     fill_idxs = [tmp.index("{}") for tmp in context_templates]
+@@ -132,7 +132,7 @@
+         for i, idx_list in enumerate(batch_idxs):
+             to_return[key].append(cur_repr[i][idx_list].mean(0))
+ 
+-    for batch_contexts, batch_idxs in _batch(n=128):
++    for batch_contexts, batch_idxs in _batch(n=16):
+         contexts_tok = tok(batch_contexts, padding=True, return_tensors="pt").to(
+             next(model.parameters()).device
+         )
+@@ -143,6 +143,7 @@
+                 layer=module_name,
+                 retain_input=tin,
+                 retain_output=tout,
++                stop=True,
+             ) as tr:
+                 model(**contexts_tok)
+ 
+diff -ru a/util/globals.py b/util/globals.py
+--- a/util/globals.py
++++ b/util/globals.py
+@@ -1,19 +1,12 @@
++# Modified: upstream reads these paths from a `globals.yml` in the working directory.
++# MEMIT only uses STATS_DIR (the covariance cache), which novelapibench.adaptation.memit sets
++# explicitly on memit.memit_main before editing.
+ from pathlib import Path
+ 
+-import yaml
++RESULTS_DIR = Path("results")
++DATA_DIR = Path("data")
++STATS_DIR = Path("data/stats")
++HPARAMS_DIR = Path("hparams")
++KV_DIR = Path("kvs")
+ 
+-with open("globals.yml", "r") as stream:
+-    data = yaml.safe_load(stream)
+-
+-(RESULTS_DIR, DATA_DIR, STATS_DIR, HPARAMS_DIR, KV_DIR) = (
+-    Path(z)
+-    for z in [
+-        data["RESULTS_DIR"],
+-        data["DATA_DIR"],
+-        data["STATS_DIR"],
+-        data["HPARAMS_DIR"],
+-        data["KV_DIR"],
+-    ]
+-)
+-
+-REMOTE_ROOT_URL = data["REMOTE_ROOT_URL"]
++REMOTE_ROOT_URL = "https://memit.baulab.info"

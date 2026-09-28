@@ -1,0 +1,11 @@
+# pydantic (software engineering). Versions are the two pinned releases the candidate pool was diffed on.
+package: pydantic
+domain: swe
+old_version: 2.5.2
+new_version: 2.13.3
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  doc_source: html
+  doc_url: https://docs.pydantic.dev/
+  changelog_url: https://docs.pydantic.dev/latest/changelog/

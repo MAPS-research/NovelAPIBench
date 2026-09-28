@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "novelapibench"
+version = "1.0.0"
+description = "NovelAPIBench: a model-conditioned benchmark for the use of newly introduced or modified Python APIs"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+readme = "README.md"
+authors = [
+  {name = "Jinnuo Liu"},
+  {name = "Yue Peng"},
+  {name = "Jinhan Niu"},
+  {name = "Hongyi Wen"},
+]
+
+[project.urls]
+Repository = "https://github.com/MAPS-research/NovelAPIBench"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["novelapibench*"]

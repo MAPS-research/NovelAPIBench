@@ -1,0 +1,19 @@
+# Execution environment for ase tasks: ase==3.28.0 on Python 3.11 (exact package set used for the paper).
+ase==3.28.0
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.62.1
+kiwisolver==1.5.0
+matplotlib==3.10.9
+numpy==2.4.4
+packaging==26.2
+pillow==12.2.0
+pip==26.1
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+scipy==1.17.1
+setuptools==82.0.1
+six==1.17.0
+spglib==2.7.0
+typing_extensions==4.15.0
+wheel==0.47.0

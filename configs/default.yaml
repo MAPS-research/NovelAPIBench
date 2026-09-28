@@ -1,0 +1,42 @@
+# Settings used for every experiment in the paper (Appendix D). Model-specific values live in
+# configs/models/, library-specific ones in configs/libraries/. Override any value on the
+# command line with dot-list syntax, e.g.  inference.gpu_memory_utilization=0.8
+
+seed: 42
+
+# GPT-5-mini: knowledge extraction, task generation, C3 solver, failure classifier.
+strong_model:
+  name: gpt-5-mini
+  search_model: gpt-5-mini        # Responses API with the web_search tool (Stage 2)
+  reasoning_effort: low
+  max_tokens: 4096
+  temperature: 0.0
+  request_timeout_seconds: 120
+
+# SQLite cache of deterministic strong-model calls (not redistributed).
+cache:
+  enabled: true
+  path: null                      # default: <outputs>/cache/llm_cache.sqlite
+  journal_mode: truncate          # safe on network file systems
+
+inference:
+  temperature: 0.0                # pass@1: greedy
+  num_samples_pass5: 20           # pass@5: 20 samples at T = 0.8, unbiased estimator
+  temperature_pass5: 0.8
+  repetition_penalty: 1.0
+  max_model_len: 16384            # clamped to each model's own window (OpenCoder: 8192)
+  gpu_memory_utilization: 0.85
+  dtype: bfloat16
+  max_lora_rank: 64
+
+evaluation:
+  timeout_seconds: 30             # default; libraries override with eval_timeout_seconds
+  max_memory_mb: 16384
+  task_workers: 4                 # completions executed in parallel (keep <= CPU cores)
+  classify_failures: true         # GPT-5-mini labels failures (needs OPENAI_API_KEY)
+
+retrieval:
+  embedding_model: BAAI/bge-small-en-v1.5
+  embedding_revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+  chunk_words: 512                # chunks of 512 whitespace-separated words, 64-word overlap
+  top_k: 5

@@ -1,0 +1,2 @@
+# main-environment
+# Tasks of rdkit run in the main project environment, which pins rdkit==2026.3.1 (requirements.txt).

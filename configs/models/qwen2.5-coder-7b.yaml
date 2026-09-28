@@ -1,0 +1,8 @@
+# Primary backbone (RQ1-RQ3).
+name: Qwen/Qwen2.5-Coder-7B-Instruct
+revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+max_seq_len: 16384
+max_new_tokens: 2048
+thinking_mode: false
+trust_remote_code: false
+tensor_parallel_size: 1

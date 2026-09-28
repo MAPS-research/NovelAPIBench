@@ -1,0 +1,13 @@
+# Execution environment for pydantic tasks: pydantic==2.13.3 on Python 3.11 (exact package set used for the paper).
+annotated-types==0.7.0
+dnspython==2.8.0
+email-validator==2.3.0
+idna==3.13
+packaging==26.2
+pip==26.1
+pydantic==2.13.3
+pydantic_core==2.46.3
+setuptools==82.0.1
+typing_extensions==4.15.0
+typing-inspection==0.4.2
+wheel==0.47.0

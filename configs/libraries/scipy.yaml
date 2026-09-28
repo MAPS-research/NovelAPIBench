@@ -1,0 +1,12 @@
+# scipy (data science). Versions are the two pinned releases the candidate pool was diffed on.
+package: scipy
+domain: data_science
+old_version: 1.11.4
+new_version: 1.17.1
+python_version: "3.11"
+eval_timeout_seconds: 30
+construction:
+  max_novel: 300
+  doc_source: html
+  doc_url: https://docs.scipy.org/doc/scipy/
+  changelog_url: https://www.scipopt.org/doc/html/CHG.php
