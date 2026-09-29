@@ -6,7 +6,7 @@ model's training data was collected. It is the code and data release of the pape
 
 > **NovelAPIBench: Diagnosing How A Code LLM Learns to Use Novel APIs**<br>
 > Jinnuo Liu, Yue Peng, Jinhan Niu, Hongyi Wen<br>
-> Preprint, 2026. <!-- TODO: arXiv link -->
+> arXiv:2606.03657, 2026. [[Paper]](https://arxiv.org/abs/2606.03657)
 
 ![NovelAPIBench overview](assets/overview.png)
 
@@ -491,7 +491,10 @@ If you use NovelAPIBench, please cite:
   title  = {NovelAPIBench: Diagnosing How A Code LLM Learns to Use Novel APIs},
   author = {Liu, Jinnuo and Peng, Yue and Niu, Jinhan and Wen, Hongyi},
   year   = {2026},
-  note   = {Preprint}
+  eprint = {2606.03657},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url    = {https://arxiv.org/abs/2606.03657}
 }
 ```
 

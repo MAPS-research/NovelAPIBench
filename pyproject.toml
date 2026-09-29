@@ -18,6 +18,7 @@ authors = [
 
 [project.urls]
 Repository = "https://github.com/MAPS-research/NovelAPIBench"
+Paper = "https://arxiv.org/abs/2606.03657"
 
 [tool.setuptools.packages.find]
 where = ["."]
